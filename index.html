@@ -108,6 +108,24 @@
       	<br>
       	<label for="num" style="font-size:22px; color:#e04f8b;" class="fst-bold">We can recommend you blush 10% OFF!</label>
       	<br><br>
+    
+
+        <br>
+      </div>
+      <div class="container bg-light">
+        <label for="shade" style="font-size:22px; color:hotpink;" class="fst-italic">
+        Choose Your Shade:
+        </label>
+
+        <br><br>
+
+        <select id="shade" class="form-control">
+          <option value="softpink">Soft Pink</option>
+          <option value="coral">Coral</option>
+          <option value="berry">Berry</option>
+        </select>
+
+        <br>
         <label for="num" style="font-size:22px; color:hotpink;" class="fst-italic">Enter Your  Blush Budget:</label>
 
         <br><br>
@@ -115,18 +133,22 @@
         <input type="number" id="num1" class="form-control" placeholder="Number" require>
 
         <br>
+      </div>
 
-		<button type="button" class="btn" onclick="FindBlush()">
-		    Find Your Blush
-		</button>
+      <div class="container bg-light text-center">
 
-		<button type="button" class="btn" onclick="discountPrice()">
-		    With 10% Off
-		</button>
+        	<button type="button" class="btn" onclick="FindBlush()">
+          		    Find Your Blush
+          		</button>
 
-		<p id="display" class="mt-3 fw-bold text-dark"></p>
+       		<button type="button" class="btn" onclick="discountPrice()">
+          		    With 10% Off
+          		</button>
+          		<p id="display" class="mt-3 fw-bold text-dark"></p>
 
-        <br><br>
+          <br><br>
+
+      </div>
 
       </form>
 
@@ -138,19 +160,50 @@
 
  <script>
 
-	function FindBlush() {
-        "<br>The brand for you is: brand" +
-        "<br>Store Location: address";
-	}
+  function FindBlush() {
 
-	function discountPrice() {
-	    var num1 = document.getElementById('num1').value;
+ var budget = Number(document.getElementById('num1').value);
+    var shade = document.getElementById('shade').value;
 
-	    var result = Number(num1) - (Number(num1) * 0.10);
+    var brand = "";
+    var price = 0;
+    var location = "";
 
-	    document.getElementById('display').innerHTML =
-	    "Your blush with 10% OFF costs: ₱" + result.toFixed(2);
-		}
+    if (shade === "softpink") {
+        brand = "Dior Rosy Glow";
+        price = 2500;
+        location = "SM Mall of Asia – Dior Beauty Boutique";
+    }
+
+    else if (shade === "coral") {
+       brand = "Rare Beauty Joy";
+       price = 1800;
+        location = "Sephora Philippines – BGC High Street";
+    }
+
+    else if (shade === "berry") {
+        brand = "NARS Dolce Vita";
+          price = 2000;
+          location = "Rustan's Makati – NARS Counter";
+    } 
+
+    if (budget >= price) {
+        document.getElementById("display").innerHTML =
+        "✨ Perfect Match Found! ✨ <br><br>" +
+        "Brand: " + brand +
+        "<br>Price: ₱" + price.toFixed(2) +
+        "<br>Available At: " + location;
+
+}
+
+
+function discountPrice() {
+    var num1 = Number(document.getElementById('num1').value);
+    var result = num1 - (num1 * 0.10);
+
+    document.getElementById('display').innerHTML =
+    "💖 Your blush with 10% OFF costs: ₱" + result.toFixed(2);
+}
 
   	
 
