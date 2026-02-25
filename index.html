@@ -159,59 +159,28 @@
     </form>
 
 <script>
-var selectedPrice = 0;
+var selectedPrice = 2500; // fixed price
 
 function FindBlush() {
 
-    var budget = Number(document.getElementById('num1').value);
-    var shade = document.getElementById('shade').value;
+    var brand = "Dior Rosy Glow";
+    var price = 2500;
+    var location = "SM Mall of Asia – Dior Beauty Boutique";
 
-    var brand = "";
-    var price = 0;
-    var location = "";
-
-    if (shade === "softpink") {
-        brand = "Dior Rosy Glow";
-        price = 2500;
-        location = "SM Mall of Asia – Dior Beauty Boutique";
-    } else if (shade === "coral") {
-        brand = "Rare Beauty Joy";
-        price = 1800;
-        location = "Sephora Philippines – BGC High Street";
-    } else if (shade === "berry") {
-        brand = "NARS Dolce Vita";
-        price = 2000;
-        location = "Rustan's Makati – NARS Counter";
-    }
-
-         selectedPrice = price;
-
-    if (budget >= price) {
-            document.getElementById("display").innerHTML =
-          "✨ Perfect Match Found! ✨ <br><br>" +
-          "Brand: " + brand +
-         "<br>Price: ₱" + price.toFixed(2) +
-          "<br>Available At: " + location;
-    } else {
-             document.getElementById("display").innerHTML =
-            "💔 Budget too low!<br>" +
-               "You need at least ₱" + price.toFixed(2);
-    } 
+    document.getElementById("display").innerHTML =
+        "✨ Perfect Match Found! ✨ <br><br>" +
+        "Brand: " + brand +
+        "<br>Price: ₱" + price.toFixed(2) +
+        "<br>Available At: " + location;
 }
 
 function discountPrice() {
 
-    if (selectedPrice === 0) {
-          document.getElementById("display").innerHTML =
-                "Please click 'Find Your Blush' first!";
-            return;
-    } 
-
     var discounted = selectedPrice - (selectedPrice * 0.10);
 
-       document.getElementById("display").innerHTML =
+    document.getElementById("display").innerHTML =
         "💖 10% OFF Applied!<br>" +
-           "Discounted Price: ₱" + discounted.toFixed(2);
+        "Discounted Price: ₱" + discounted.toFixed(2);
 }
 </script>
 
@@ -219,3 +188,4 @@ function discountPrice() {
 
 </body>
 </html>
+
